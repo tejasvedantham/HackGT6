@@ -48,5 +48,7 @@
         <item>7'0"</item>
 
     </string-array>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
 </resources>
