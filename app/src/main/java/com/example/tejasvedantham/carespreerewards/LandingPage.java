@@ -94,6 +94,9 @@ public class LandingPage extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                             //progressBar.setVisibility(View.GONE);
 
+                            Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                            startActivity(intent);
+
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
