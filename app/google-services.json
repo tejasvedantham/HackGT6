@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "486224027809",
+    "firebase_url": "https://hackgt6-c09f6.firebaseio.com",
+    "project_id": "hackgt6-c09f6",
+    "storage_bucket": "hackgt6-c09f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486224027809:android:d0c0ad5760239b27b710e0",
+        "android_client_info": {
+          "package_name": "com.example.tejasvedantham.carespreerewards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486224027809-bk68b7fihk7bh2e5s0v1gjbu6lf72515.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tejasvedantham.carespreerewards",
+            "certificate_hash": "d566ec540b8bb935b735e6df9491a81d507450c8"
+          }
+        },
+        {
+          "client_id": "486224027809-vd0ra2dl4aemrjcqg89nan2empu6jaek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRWot-EQTwEXCVSAvbCx_DQVkPhNMmYAA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486224027809-vd0ra2dl4aemrjcqg89nan2empu6jaek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
