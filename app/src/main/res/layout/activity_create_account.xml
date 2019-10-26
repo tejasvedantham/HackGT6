@@ -14,7 +14,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/LastName"
+        android:id="@+id/lastName"
         android:hint="Last Name"
         android:layout_marginTop="5dp"
         android:layout_marginLeft="20dp"
@@ -56,6 +56,33 @@
         android:layout_margin="5dp"
         android:layout_toRightOf="@+id/height"
         android:layout_below="@+id/gender"/>
+
+    <android.support.design.button.MaterialButton
+        android:id="@+id/createAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Create Account"
+        android:layout_centerHorizontal="true"
+        android:onClick="createAccountAndPush"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_alignParentBottom="true"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:hint="Email"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/height"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/password"
+        android:hint="Password"
+        android:layout_margin="5dp"
+        android:layout_below="@+id/email"/>
 
 
 </RelativeLayout>
