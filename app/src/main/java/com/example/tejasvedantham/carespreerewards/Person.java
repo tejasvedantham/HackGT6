@@ -10,6 +10,7 @@ public class Person {
     private int weight;
     private String email;
     private String password;
+    private int pointsBalance;
 
     public Person(String firstName, String lastName,
                   int age, String gender,
@@ -23,8 +24,17 @@ public class Person {
         this.weight = weight;
         this.email = email;
         this.password = password;
+        this.pointsBalance = 0;
     }
 
+
+    public int getPointsBalance() {
+        return pointsBalance;
+    }
+
+    public void setPointsBalance(int pointsBalance) {
+        this.pointsBalance = pointsBalance;
+    }
 
     public String getFirstName() {
         return firstName;

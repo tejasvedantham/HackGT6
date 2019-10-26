@@ -5,9 +5,36 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/headerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the rewards page"
-        android:textSize="30dp"/>
+        android:text="Welcome to Carespree Rewards!"
+        android:textSize="30dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/currentBalanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Balance: 0"
+        android:layout_below="@+id/headerText"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/availableRewards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Available Rewards: xxx"
+        android:layout_below="@+id/currentBalanceText"
+        android:layout_margin="10dp"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/availableRewards"
+        android:dividerHeight="3px"
+        android:divider="#3f51b4">
+
+    </ListView>
 
 </RelativeLayout>
