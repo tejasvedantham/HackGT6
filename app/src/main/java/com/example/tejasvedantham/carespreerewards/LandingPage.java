@@ -95,6 +95,9 @@ public class LandingPage extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), Dashboard.class);
                             startActivity(intent);
 
+                            Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                            startActivity(intent);
+
                         }
                         else {
                             Toast.makeText(getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
