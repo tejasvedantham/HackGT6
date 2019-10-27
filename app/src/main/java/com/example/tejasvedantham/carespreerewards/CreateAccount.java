@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -50,25 +51,27 @@ public class CreateAccount extends AppCompatActivity {
         password = ((EditText) findViewById(R.id.password)).getText().toString();
         age = Integer.parseInt(((EditText) findViewById(R.id.age)).getText().toString());
 
-        Person person = new Person(firstName, lastName, age, gender, height, weight, email, password);
-
-        FirebaseDatabase.getInstance().getReference(firstName).setValue(person);
-
+        final Person person = new Person(firstName, lastName, age, gender, height, weight, email, password);
+        FirebaseUser user;
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getApplicationContext(), Dashboard.class);
-                            startActivity(intent);
-
+                            final FirebaseUser user = task.getResult().getUser();
+                            final String uid = user.getUid();
+                            FirebaseDatabase.getInstance().getReference(uid).setValue(person);
                         }
                         else {
+                            final FirebaseUser user = task.getResult().getUser();
                             Toast.makeText(getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
-                            //progressBar.setVisibility(View.GONE);
+                            return;
                         }
                     }
                 });
+
+        Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+        startActivity(intent);
     }
 }

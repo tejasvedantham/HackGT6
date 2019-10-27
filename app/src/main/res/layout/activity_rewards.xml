@@ -8,7 +8,7 @@
         android:id="@+id/headerText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to Carespree Rewards!"
+        android:text="Welcome to Carespree Rewards, "
         android:textSize="30dp"
         android:layout_margin="10dp"/>
 
