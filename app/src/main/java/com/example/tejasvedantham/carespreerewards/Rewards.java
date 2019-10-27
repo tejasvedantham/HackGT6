@@ -12,7 +12,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -65,7 +67,8 @@ public class Rewards extends Fragment {
         listView.setAdapter(adapter);
 
         Bundle extras = getActivity().getIntent().getExtras();
-        if (extras != null) {
+
+        if (extras != null && getActivity().getIntent().hasExtra("EXTRA_INFO")) {
             String placeName = extras.get("EXTRA_INFO").toString();
             headerText.setText("Thank you for visiting: " + placeName);
 
@@ -106,6 +109,19 @@ public class Rewards extends Fragment {
                 });
             }
         }
+
+        if (extras != null && getActivity().getIntent().hasExtra("fruit")) {
+            String key = "Fruit: ";
+            float value = extras.getInt("fruit");
+            //Toast.makeText(getContext(), key + ": " + value, Toast.LENGTH_LONG).show();
+        }
+
+        if (extras != null && getActivity().getIntent().hasExtra("vegetable")) {
+            String key = "Vegetable: ";
+            String value = extras.get("vegetable").toString();
+           // Toast.makeText(getContext(), key + ": " + value, Toast.LENGTH_LONG).show();
+        }
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
