@@ -66,6 +66,22 @@ public class Rewards extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, listItems);
         listView.setAdapter(adapter);
 
+        FirebaseUser user1 = mAuth.getCurrentUser();
+        String uid1 = user1.getUid();
+        FirebaseDatabase.getInstance().getReference(uid1).child("firstName").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String currValue = (String) dataSnapshot.getValue();
+                headerText.append(currValue + "!");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         Bundle extras = getActivity().getIntent().getExtras();
 
         if (extras != null && getActivity().getIntent().hasExtra("EXTRA_INFO")) {
@@ -113,7 +129,7 @@ public class Rewards extends Fragment {
         if (extras != null && getActivity().getIntent().hasExtra("fruit")) {
             String key = "Fruit: ";
             float value = extras.getInt("fruit");
-            //Toast.makeText(getContext(), key + ": " + value, Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), key + ": " + value, Toast.LENGTH_LONG).show();
         }
 
         if (extras != null && getActivity().getIntent().hasExtra("vegetable")) {
@@ -175,10 +191,6 @@ public class Rewards extends Fragment {
 
             }
         });
-
-
-
-
 
         return v;
     }

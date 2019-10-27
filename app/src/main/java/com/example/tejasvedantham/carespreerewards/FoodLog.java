@@ -66,6 +66,7 @@ public class FoodLog extends Fragment {
             FirebaseVisionImageLabeler labeler = FirebaseVision.getInstance().getOnDeviceImageLabeler(options);
 
             final Intent intent = new Intent(getContext(), Dashboard.class);
+
             labeler.processImage(image)
                     .addOnSuccessListener(new OnSuccessListener<List<FirebaseVisionImageLabel>>() {
                         @Override
@@ -80,7 +81,7 @@ public class FoodLog extends Fragment {
 
                                 if (text.equalsIgnoreCase("fruit")) {
                                     intent.putExtra(text, confidence);
-                                    Toast.makeText(getContext(), text + ": " + confidence, Toast.LENGTH_LONG).show();
+                                    //Toast.makeText(getContext(), text + ": " + confidence, Toast.LENGTH_LONG).show();
                                 }
                                 if (text.equalsIgnoreCase("vegetable")) {
                                     intent.putExtra(text, confidence);
