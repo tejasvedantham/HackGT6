@@ -56,6 +56,8 @@ public class Rewards extends Fragment {
         listItems.add("$25 Starbucks™ Giftcard  -  20 Points");
         listItems.add("$40 VISA™ Giftcard  -  30 Points");
         listItems.add("Free GreatClips™ Haircut  -  50 Points");
+        listItems.add("50% Coupon for Walmart™  -  40 Points");
+        listItems.add("Buy 1 Get 1 Free Bounty™ Paper Towels - 30 points");
 
         TextView listHeader = new TextView(getContext());
         listHeader.setText("  Available Rewards");
@@ -86,7 +88,7 @@ public class Rewards extends Fragment {
 
         if (extras != null && getActivity().getIntent().hasExtra("EXTRA_INFO")) {
             String placeName = extras.get("EXTRA_INFO").toString();
-            headerText.setText("Thank you for visiting: " + placeName);
+            headerText.setText("Thank you for visiting: " + placeName + ", ");
 
             if (placeName.equals("Lifetime Fitness")) {
                 FirebaseUser user = mAuth.getCurrentUser();
@@ -97,7 +99,7 @@ public class Rewards extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         long currValue = (Long) dataSnapshot.getValue();
                         FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((15 + currValue));
-                        availablePoints.append("" + (15 + currValue));
+                        availablePoints.setText("Current Balance: " + (15 + currValue));
                     }
 
                     @Override
@@ -115,7 +117,7 @@ public class Rewards extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         long currValue = (Long) dataSnapshot.getValue();
                         FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((20 + currValue));
-                        availablePoints.append("" + (20 + currValue));
+                        availablePoints.setText("Current Balance: " + (20 + currValue));
                     }
 
                     @Override
@@ -126,16 +128,54 @@ public class Rewards extends Fragment {
             }
         }
 
-        if (extras != null && getActivity().getIntent().hasExtra("fruit")) {
-            String key = "Fruit: ";
-            float value = extras.getInt("fruit");
-            Toast.makeText(getContext(), key + ": " + value, Toast.LENGTH_LONG).show();
+        if (extras != null && getActivity().getIntent().hasExtra("Fruit")) {
+            String key = "Fruit";
+            float value = extras.getFloat("Fruit");
+            headerText.setText("Thank you for eating a fruit, ");
+            Toast.makeText(getContext(), key + ": " + (value * 100) + "% chance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Here's 5 points! ", Toast.LENGTH_LONG).show();
+
+            FirebaseUser user = mAuth.getCurrentUser();
+            final String uid = user.getUid();
+
+            FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    long currValue = (Long) dataSnapshot.getValue();
+                    FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((5 + currValue));
+                    availablePoints.setText("Current Balance: " + (5 + currValue));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
 
-        if (extras != null && getActivity().getIntent().hasExtra("vegetable")) {
-            String key = "Vegetable: ";
-            String value = extras.get("vegetable").toString();
-           // Toast.makeText(getContext(), key + ": " + value, Toast.LENGTH_LONG).show();
+        if (extras != null && getActivity().getIntent().hasExtra("Vegetable")) {
+            String key = "Vegetable";
+            float value = extras.getFloat("Vegetable");
+            headerText.setText("Thank you for eating a vegetable, ");
+            Toast.makeText(getContext(), key + ": " + (value * 100) + "% chance", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Here's 5 points! ", Toast.LENGTH_LONG).show();
+
+            FirebaseUser user = mAuth.getCurrentUser();
+            final String uid = user.getUid();
+
+            FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    long currValue = (Long) dataSnapshot.getValue();
+                    FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((5 + currValue));
+                    availablePoints.setText("Current Balance: " + (5 + currValue));
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
         }
 
 
@@ -151,7 +191,7 @@ public class Rewards extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             long currValue = (Long) dataSnapshot.getValue();
                             FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 20));
-                            availablePoints.append("" + (currValue - 20));
+                            availablePoints.setText("Current Balance: " + (currValue - 20));
                         }
 
                         @Override
@@ -165,7 +205,7 @@ public class Rewards extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             long currValue = (Long) dataSnapshot.getValue();
                             FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 30));
-                            availablePoints.append("" + (currValue - 30));
+                            availablePoints.setText("Current Balance: " + (currValue - 30));
                         }
 
                         @Override
@@ -179,7 +219,35 @@ public class Rewards extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             long currValue = (Long) dataSnapshot.getValue();
                             FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 50));
-                            availablePoints.append("" + (currValue - 50));
+                            availablePoints.setText("Current Balance: " + (currValue - 50));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                } else if (id == 3) {
+                    FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            long currValue = (Long) dataSnapshot.getValue();
+                            FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 40));
+                            availablePoints.setText("Current Balance: " + (currValue - 40));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                } else if (id == 4) {
+                    FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            long currValue = (Long) dataSnapshot.getValue();
+                            FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 30));
+                            availablePoints.setText("Current Balance: " + (currValue - 30));
                         }
 
                         @Override
