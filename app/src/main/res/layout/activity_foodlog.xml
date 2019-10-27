@@ -4,20 +4,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <TextView
-        android:id="@+id/foodLogText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the food log page"
-        android:textSize="30dp"/>
+        android:layout_centerHorizontal="true"
+        android:text="Take a picture of\nyour healthy snack!"
+        android:fontFamily="@font/y_medium"
+        android:layout_marginTop="75dp"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textColor="#204200"
+        android:id="@+id/foodLogText"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Anything! From your favorite vegetables\nall the way to exotic fruits!"
+        android:fontFamily="@font/y_light"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textColor="#000352"
+        android:layout_below="@id/foodLogText"
+        android:id="@+id/foodLogText2"/>
 
     <Button
         android:id="@+id/takePicButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="@drawable/scan_qr_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="Take Picture"
-        android:layout_below="@+id/foodLogText"
-        android:layout_margin="10dp"
-        />
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/foodLogText2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp" />
 
 </RelativeLayout>
