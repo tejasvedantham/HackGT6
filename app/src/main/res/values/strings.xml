@@ -1,11 +1,17 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name">CarespreeRewards</string>
     <string name="action_settings">Settings</string>
 
     <string-array name="gender_array">
-        <item>Male</item>
-        <item>Female</item>
-        <item>Other</item>
+        <item>
+            Male
+        </item>
+        <item>
+            Female
+        </item>
+        <item>
+            Other
+        </item>
     </string-array>
 
     <string-array name="height_array">
