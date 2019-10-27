@@ -7,19 +7,39 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the check-in3 page"
-        android:textSize="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="Check in at our local\nHealthyHotspots™!"
+        android:fontFamily="@font/y_medium"
+        android:layout_marginTop="75dp"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textColor="#000352"
         android:id="@+id/checkInText"/>
 
-    <android.support.design.button.MaterialButton
-        android:id="@+id/scanQRButton"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan QR"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        android:text="This includes local gyms, farmers'\nmarkets, and sports events"
+        android:fontFamily="@font/y_light"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textColor="#204200"
+        android:layout_below="@id/checkInText"
+        android:id="@+id/checkInText2"/>
+
+    <Button
+        android:id="@+id/scanQRButton"
+        android:background="@drawable/scan_qr_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="Scan QR"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:layout_below="@id/checkInText2"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="50dp" />
 
 
 </RelativeLayout>

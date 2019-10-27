@@ -33,7 +33,7 @@ public class CheckIn extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.activity_checkin, container, false);
 
-        MaterialButton button = v.findViewById(R.id.scanQRButton);
+        Button button = v.findViewById(R.id.scanQRButton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

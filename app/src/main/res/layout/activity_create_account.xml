@@ -84,8 +84,6 @@
         android:layout_centerHorizontal="true"
         android:minWidth="50dp"
         android:textAlignment="center"
-
-
         android:id="@+id/height"
         android:layout_below="@+id/gender"
         android:entries="@array/height_array"
