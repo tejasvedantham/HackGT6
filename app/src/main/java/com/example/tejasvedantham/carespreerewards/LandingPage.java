@@ -92,7 +92,8 @@ public class LandingPage extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-
+                            Intent intent = new Intent(getApplicationContext(), Dashboard.class);
+                            startActivity(intent);
 
                         }
                         else {

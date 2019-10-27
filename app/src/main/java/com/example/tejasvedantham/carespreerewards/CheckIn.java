@@ -53,6 +53,7 @@ public class CheckIn extends Fragment {
                     Barcode barcode = data.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
                     Toast.makeText(getContext(), "Barcode read: " + barcode.displayValue, Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getContext(), Rewards.class);
+                    intent.putExtra("EXTRA_INFO", barcode.displayValue);
                     startActivity(intent);
                 } else {
                     Log.d(TAG, "No barcode captured, intent data is null");
