@@ -96,10 +96,6 @@ public class Person {
         this.password = password;
     }
 
-
-
-
-
     public int getAge() {
         return age;
     }
