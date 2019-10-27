@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -47,9 +48,9 @@ public class Rewards extends Fragment {
         availablePoints = v.findViewById(R.id.currentBalanceText);
         listView = v.findViewById(R.id.listView);
         List<String> listItems = new ArrayList<>();
-        listItems.add("$25 Starbucks™ Giftcard");
-        listItems.add("$40 VISA™ Giftcard");
-        listItems.add("Free GreatClips™ Haircut");
+        listItems.add("$25 Starbucks™ Giftcard  -  20 Points");
+        listItems.add("$40 VISA™ Giftcard  -  30 Points");
+        listItems.add("Free GreatClips™ Haircut  -  50 Points");
 
         TextView listHeader = new TextView(getContext());
         listHeader.setText("  Available Rewards");
@@ -102,6 +103,61 @@ public class Rewards extends Fragment {
                 });
             }
         }
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FirebaseUser user = mAuth.getCurrentUser();
+                final String uid = user.getUid();
+
+                if (id == 0) {
+                    FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            long currValue = (Long) dataSnapshot.getValue();
+                            FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 20));
+                            availablePoints.append("" + (currValue - 20));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                } else if (id == 1) {
+                    FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            long currValue = (Long) dataSnapshot.getValue();
+                            FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 30));
+                            availablePoints.append("" + (currValue - 30));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                } else if (id == 2) {
+                    FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            long currValue = (Long) dataSnapshot.getValue();
+                            FirebaseDatabase.getInstance().getReference(uid).child("pointsBalance").setValue((currValue - 50));
+                            availablePoints.append("" + (currValue - 50));
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
+            }
+        });
+
+
 
 
 
