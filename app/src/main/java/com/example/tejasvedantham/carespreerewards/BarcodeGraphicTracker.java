@@ -1,12 +1,14 @@
 package com.example.tejasvedantham.carespreerewards;
 
 import android.content.Context;
-import android.support.annotation.UiThread;
+//import android.support.annotation.UiThread;
 
 import com.example.tejasvedantham.carespreerewards.camera.GraphicOverlay;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.barcode.Barcode;
+
+import androidx.annotation.UiThread;
 
 /**
  * Generic tracker which is used for tracking or reading a barcode (and can really be used for

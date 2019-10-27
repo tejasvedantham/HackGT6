@@ -3,7 +3,7 @@ package com.example.tejasvedantham.carespreerewards.camera;
 import android.Manifest;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.support.annotation.RequiresPermission;
+//import android.support.annotation.RequiresPermission;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.google.android.gms.common.images.Size;
 
 import java.io.IOException;
+
+import androidx.annotation.RequiresPermission;
 
 public class CameraSourcePreview extends ViewGroup {
     private static final String TAG = "CameraSourcePreview";

@@ -2,8 +2,8 @@ package com.example.tejasvedantham.carespreerewards;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.button.MaterialButton;
-import android.support.v4.app.Fragment;
+//import android.support.design.button.MaterialButton;
+//import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
+
+import androidx.fragment.app.Fragment;
 
 import static android.content.ContentValues.TAG;
 
